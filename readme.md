@@ -1,27 +1,27 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/eYiHG5M3)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12908026&assignment_repo_type=AssignmentRepo)
-# Context API
+# React + TypeScript + Vite
 
-## Question:
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Create a React SPA with Context API, where you manage `currentCurrency` inside your context. The user should be allowed to change the currency and it reflects across the app via the context.
+Currently, two official plugins are available:
 
--   You can install dependencies like React Router, Styling Libraries, etc if needed.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Component Structure:
+## Expanding the ESLint configuration
 
-    - App.jsx
-        - CurrencySelector.jsx - Triggers the context update
-        - DisplayCurrency.jsx - Displays the current value from Context
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## Steps:
+- Configure the top-level `parserOptions` property like this:
 
-1. Create a React App: Set up a new React application using create-react-app or your preferred method. Also set up styles with your preferred choice.
+```js
+   parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+   },
+```
 
-2. Create a Currency Context: Define a new context using createContext. This context will hold the `selected currency` and define a method to switch between currencies **(Give 2 options minimum)**.
-
-3. Currency Selection UI: Create a user interface element (e.g., a dropdown or buttons) that allows users to choose their preferred currency. This UI should trigger a function to update the selected currency within the `CurrencyProvider`.
-
-4. Design a simple component that displays the current currency from your context. UI is your choice completely. Minimum Requirement is to design a `seperate React Component` and render the currency there.
-
-5. Bonus: Context Nesting: If you want to practice context nesting, you can add another context for managing themes `(Light & Dark)` alongside the currency context.
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
